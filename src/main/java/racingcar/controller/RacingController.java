@@ -13,5 +13,6 @@ public class RacingController {
     public void start() {
         String carNames = inputHandler.carNameInput();
         ValidateCarName.validateCarName(carNames);
+        int tryCount = inputHandler.tryCountInput();
     }
 }
