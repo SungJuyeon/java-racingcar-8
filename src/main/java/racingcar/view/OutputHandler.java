@@ -1,4 +1,4 @@
 package racingcar.view;
 
-public class outputHandler {
+public class OutputHandler {
 }
