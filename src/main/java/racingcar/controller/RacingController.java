@@ -1,6 +1,7 @@
 package racingcar.controller;
 
-import racingcar.domain.ValidateCarName;
+import racingcar.domain.Cars;
+import racingcar.domain.ValidateInput;
 import racingcar.view.InputHandler;
 
 public class RacingController {
@@ -12,7 +13,11 @@ public class RacingController {
 
     public void start() {
         String carNames = inputHandler.carNameInput();
-        ValidateCarName.validateCarName(carNames);
+        ValidateInput.validateCarName(carNames);
+
         int tryCount = inputHandler.tryCountInput();
+        ValidateInput.validateTryCount(tryCount);
+
+        Cars cars = Cars.from(carNames);
     }
 }
