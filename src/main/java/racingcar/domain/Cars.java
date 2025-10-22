@@ -14,8 +14,14 @@ public class Cars {
         List<Car> carList = new ArrayList<>();
         String[] carNames = carNamesInput.split(",");
         for (String carName : carNames) {
+            validateCarName(carName);
             carList.add(new Car(carName));
         }
         return new Cars(carList);
+    }
+
+    public static void validateCarName(String carName) {
+        if(carName == null || carName.length() > 5)
+            throw new IllegalArgumentException();
     }
 }
