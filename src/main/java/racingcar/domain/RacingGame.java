@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.view.OutputHandler;
 
 public class RacingGame {
     public static final int START_VALUE = 0;
@@ -10,11 +11,15 @@ public class RacingGame {
         return Randoms.pickNumberInRange(START_VALUE, END_VALUE);
     }
 
-    public void isMove(Cars cars) {
-        for(int i = 0; i < cars.carCount(); i++) {
-            if(randomValue() >= 4) {
-                cars.get(i).addPosition();
+    public void playRound(Cars cars) {
+        for(Car car : cars.getCars()) {
+            if(shouldMove()) {
+                car.addPosition();
             }
         }
+    }
+
+    public boolean shouldMove() {
+        return randomValue() >= 4;
     }
 }

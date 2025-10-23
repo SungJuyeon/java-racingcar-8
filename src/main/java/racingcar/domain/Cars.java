@@ -33,4 +33,7 @@ public class Cars {
         return carList.get(index);
     }
 
+    public List<Car> getCars() {
+        return carList;
+    }
 }
