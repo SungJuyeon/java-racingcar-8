@@ -14,14 +14,23 @@ public class Cars {
         List<Car> carList = new ArrayList<>();
         String[] carNames = carNamesInput.split(",");
         for (String carName : carNames) {
-            validateCarName(carName);
-            carList.add(new Car(carName));
+            validateCarName(carName.trim());
+            carList.add(new Car(carName.trim()));
         }
         return new Cars(carList);
     }
 
     public static void validateCarName(String carName) {
-        if(carName == null || carName.length() > 5)
+        if(carName.isEmpty() || carName.length() > 5)
             throw new IllegalArgumentException();
     }
+
+    public int carCount() {
+        return carList.size();
+    }
+
+    public Car get(int index) {
+        return carList.get(index);
+    }
+
 }
