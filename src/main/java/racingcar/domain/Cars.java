@@ -25,15 +25,18 @@ public class Cars {
             throw new IllegalArgumentException();
     }
 
-    public int carCount() {
-        return carList.size();
-    }
-
     public Car get(int index) {
         return carList.get(index);
     }
 
     public List<Car> getCars() {
         return carList;
+    }
+
+    public int getMaxPosition(Cars cars) {
+        return carList.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(0);
     }
 }
